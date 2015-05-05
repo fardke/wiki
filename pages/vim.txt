@@ -15,12 +15,12 @@
 
 Le plugin matchit permet d'utiliser % pour les balises. Pour
 l'installer il suffit de télécharger
-[[http://www.vim.org/scripts/script.php?script_id=39|matchit]] et l'extraire dans **.vim/**.
+[[http://www.vim.org/scripts/script.php?script_id=39|matchit]] et l'extraire dans //.vim///.
 
 Le plugin xml permet de fermer automatiquement les balses.
 Pour l'installer il suffit de télécharger le fichier 
 [[http://www.vim.org/scripts/script.php?script_id=1397|xml]] et de le mettre dans
-**.vim/ftplugin** et dans **.vim/indent**. Si à la suite de ça on n'a plus la coloration
+//.vim/ftplugin// et dans //.vim/indent//. Si à la suite de ça on n'a plus la coloration
 synthaxique il suffit de faire :set filetype=xml dans vim.
 
 
@@ -29,7 +29,7 @@ synthaxique il suffit de faire :set filetype=xml dans vim.
 Le plugin asciidoc permet d'avoir la coloration syntaxique pour 
 les fichiers asciidoc. Pour l'installer il faut télécharger le fichier
 [[https://github.com/dagwieers/asciidoc-vim|ascidoc-vim]] et le mettre 
-dans le **.vim/syntax** et mettre dans **.vimrc**
+dans le //.vim/syntax// et mettre dans //.vimrc//
 
 <code vim>
     set syntax=asciidoc
@@ -43,15 +43,15 @@ de séquence et les diagrammes de block.
 Pour les installer il faut télécharger les fichiers
 [[https://raw.github.com/adogear/vim-blockdiag-series/master/syntax/seqdiag.vim|seqdiag.vim]] et
 [[https://raw.github.com/adogear/vim-blockdiag-series/master/syntax/blockdiag.vim|blockdiag.vim]] et les
-mettre dans **.vim/syntax** et mettre dans **.vimrc**.
+mettre dans //.vim/syntax// et mettre dans //.vimrc//.
 
 <code vim>
     au BufRead,BufNewFile *.seqdiag setfiletype seqdiag
     au BufRead,BufNewFile *.blockdiag setfiletype seqdiag
 </code>
 
-Il faudra ensuite mettre l'extension **.seqdiag** pour les fichiers sources des diagrammes de séquence 
-et l'extension **.blockdiag** pour les diagramme de block.
+Il faudra ensuite mettre l'extension //.seqdiag// pour les fichiers sources des diagrammes de séquence 
+et l'extension //.blockdiag// pour les diagramme de block.
 
 .. _dirdiff:
 
@@ -59,9 +59,9 @@ et l'extension **.blockdiag** pour les diagramme de block.
 
 Le plugin dirdiff permet de faire un diff entre 2 répertoires.
 Télécharger [[http://www.vim.org/scripts/download_script.php?src_id=16171|DirDiff]] et le
-mettre dans le répertoire **.vim/plugin/**.
+mettre dans le répertoire //.vim/plugin///.
 
-Modifier **.vimrc** :
+Modifier //.vimrc// :
 
 <code vim>
     let g:DirDiffDynamicDiffText = 1
@@ -81,7 +81,7 @@ Pour gérer plus facilement les plugins vim utiliser Vundle.
     git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/vundle
 </code>
 
-Pour l'utiliser, ajouter dans votre **~/.vimrc**:
+Pour l'utiliser, ajouter dans votre //~/.vimrc//:
 
 <code vim>
    set rtp+=~/.vim/bundle/vundle/
@@ -172,7 +172,7 @@ Pour avoir les replis dans notre code source il faut ajouter :
     set foldmethod=syntax
 </code>
 
-dans notre fichier **.vimrc**.
+dans notre fichier //.vimrc//.
 
 On peut également utiliser les replis avec les balises xml en ajoutant :
 
@@ -183,7 +183,7 @@ On peut également utiliser les replis avec les balises xml en ajoutant :
 
 == Recherche intelligente ==
 
-Ajouter à votre **.vimrc** :
+Ajouter à votre //.vimrc// :
 
 <code vim>
     set hlsearch
@@ -223,7 +223,7 @@ Pour activer la correction orthographique en anglais:
     :set spelllang=en spell
 </code>
 
-Il doit y avoir un répertoire **$HOME/.vim/spell/** qui contient :
+Il doit y avoir un répertoire ///$HOME/.vim/spell/// qui contient :
 
   - [[http://ftp.vim.org/vim/runtime/spell/en.utf-8.spl|en.utf-8.spl]]
   - [[http://ftp.vim.org/vim/runtime/spell/en.utf-8.sug|en.utf-8.sug]]
