@@ -1,0 +1,3 @@
+Welcome to my personnal wiki server.
+
+You will find some tips on some tools, program, configuration, ...
