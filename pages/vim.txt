@@ -225,8 +225,8 @@ Pour activer la correction orthographique en anglais:
 
 Il doit y avoir un répertoire **$HOME/.vim/spell/** qui contient :
 
-- [[http://ftp.vim.org/vim/runtime/spell/en.utf-8.spl|en.utf-8.spl]]
-- [[http://ftp.vim.org/vim/runtime/spell/en.utf-8.sug|en.utf-8.sug]]
+  - [[http://ftp.vim.org/vim/runtime/spell/en.utf-8.spl|en.utf-8.spl]]
+  - [[http://ftp.vim.org/vim/runtime/spell/en.utf-8.sug|en.utf-8.sug]]
 
 | ]s | Va au prochain mot erronné.  |
 | [s | Va au mot erronné précédent. |
