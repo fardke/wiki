@@ -1,0 +1,93 @@
+==== Nginx ====
+
+=== Install ===
+
+On archlinux install nginx package:
+
+<code bash>
+  yaourt dokuwiki
+</code>
+
+Start service automatically with systemctl:
+
+<code bash>
+  sudo systemctl enable nginx
+</code>
+
+Start service:
+
+<code bash>
+  sudo systemctl start nginx
+</code>
+
+=== Configuration ===
+
+You can configure nginx with file: /etc/nginx/nginx.conf.
+
+File example:
+
+<code apache>
+    # change default user
+    user www-data;
+    # nb processes to execute at same time
+    worker_processes  4;
+
+    # set error log file. www-data must have access to this file.
+    error_log /var/log/nginx/error.log;
+    # pid file. www-data must have access to this file.
+    pid /var/run/nginx.pid;
+
+    events {
+        worker_connections  1024;
+    }
+
+    http {
+        include       mime.types;
+        default_type  application/octet-stream;
+
+        sendfile        on;
+        tcp_nopush     on;
+        tcp_nodelay     on;
+
+        keepalive_timeout  65;
+        types_hash_max_size 2048;
+
+        # set log for access. www-data must have access to this file
+        access_log /var/log/nginx/access.log;
+        server {
+            # we only listen http request.
+            listen 80;
+
+            root /usr/share/webapps/;
+            index index.php index.html index.htm;
+
+            server_name localhost;
+            location ~ \.php$ {
+                proxy_pass   http://127.0.0.1;
+            }
+
+            # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+            #
+            location ~ \.php$ {
+                root           html;
+                fastcgi_pass   127.0.0.1:9000;
+                fastcgi_index  index.php;
+                fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+                include        fastcgi_params;
+            }
+
+            # deny access to .htaccess files, if Apache's document root
+            # concurs with nginx's one
+            #
+            location ~ /\.ht {
+                deny  all;
+            }
+        }
+    }
+</code>
+
+Normally you can access your server at [[http://localhost]].
+
+You can have more informations on this website : [[http://nginx.org/en/docs/]].
+
+
