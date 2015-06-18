@@ -1,6 +1,6 @@
-==== Vim ====
+====== Vim ======
 
-=== Tips ===
+===== tips =====
 
 | set path=**     | Cherche dans le répertoire courant.                                    |
 | ts /ma fonction | Cherche la fonction dans tous les  fichiers sources.                   |
@@ -9,9 +9,9 @@
 | :tab sp         | déplace un panel dans un onglet à part                                 |
 | r=              | remplace tout les caractères sélectionnés pas des =                    |
 
-=== Plugins ===
+===== Plugins =====
 
-== XML ==
+==== XML ====
 
 Le plugin matchit permet d'utiliser % pour les balises. Pour
 l'installer il suffit de télécharger
@@ -24,7 +24,7 @@ Pour l'installer il suffit de télécharger le fichier
 synthaxique il suffit de faire :set filetype=xml dans vim.
 
 
-== Asciidoc ==
+==== Asciidoc ====
 
 Le plugin asciidoc permet d'avoir la coloration syntaxique pour 
 les fichiers asciidoc. Pour l'installer il faut télécharger le fichier
@@ -35,7 +35,9 @@ dans le //.vim/syntax// et mettre dans //.vimrc//
     set syntax=asciidoc
 </code>
 
-== Seqdiag and Blockdiag ==
+==== Seqdiag and Blockdiag ====
+
+
 
 Ces plugins permettent d'avoir la coloration syntaxique pour les fichiers sources pour les diagrammes
 de séquence et les diagrammes de block.
@@ -55,7 +57,7 @@ et l'extension //.blockdiag// pour les diagramme de block.
 
 .. _dirdiff:
 
-== DirDiff ==
+==== DirDiff ====
 
 Le plugin dirdiff permet de faire un diff entre 2 répertoires.
 Télécharger [[http://www.vim.org/scripts/download_script.php?src_id=16171|DirDiff]] et le
@@ -69,11 +71,11 @@ Modifier //.vimrc// :
 
 Pour une bonne utilisation avec mercurial.
 
-== neocomplcache ==
+==== neocomplcache ====
 
 [[https://github.com/Shougo/neocomplcache.vim.git|neocomplcache.vim]]
 
-== Vundle pour gérer les plugins ==
+==== Vundle pour gérer les plugins ====
 
 Pour gérer plus facilement les plugins vim utiliser Vundle.
 
@@ -107,7 +109,7 @@ Ensuite il suffit de lancer dans vim:
     :PluginInstall
 </code>
 
-== NerdCommenter ==
+==== NerdCommenter ====
 
 Permet de commenter facilement des lignes de codes.
 
@@ -122,7 +124,7 @@ Ensuite il faut utiliser:
 | \ci | en mode visuel pour commenter une seule ligne            |
 | \cs | en mode visuel pour commenter plusieurs lignes d'un coup |
 
-== Foldcomments ==
+==== Foldcomments ====
 
 Permet de replier tous les commentaires d'un fichier source.
 
@@ -138,10 +140,42 @@ Ensuite il suffit de taper:
     FoldComments
 </code>
 
+==== UltiSnips ====
 
-=== Configuration ===
+Permet d'utiliser les snippets.
 
-== Pour une bonne indentation et coloration syntaxique ==
+Installation avec Vundle:
+
+<code vim>
+    Bundle 'SirVer/ultisnips'
+    Bundle 'fardke/vim-snippets'
+</code>
+
+Si UltiSnips ne reconnait pas automatiquement votre type de fichier il faut faire un lien symbolique entre **$HOME/.vim/bundle/ultisnips/ftdetect** to **$HOME/.vim/ftdetect**.
+
+Si vous utilisez You_complete_me il faut changer le binding par défaut, car les 2 plugins utilise tab.
+
+<code vim>
+    let g:UltiSnipsExpandTrigger="<c-j>"
+    let g:UltiSnipsJumpForwardTrigger="<c-j>"
+</code>
+
+Vous pouvez changer le répertoire où sauvegarder les snippets à éditer en faisant **UltiSnipsEdit**:
+
+<code vim>
+    let g:UltiSnipsSnippetsDir="mon/chemin"
+</code>
+
+Vous pouvez mapper **UltiSnipsEdit** sur F11 pour afficher le fichier où son défini les snippets en cours d'utilisation en appuyant sur F11:
+
+<code vim>
+    nnoremap <F11> :UltiSnipsEdit<CR>
+    inoremap <F11> <ESC>:UltiSnipsEdit<CR>
+</code>
+
+===== Configuration =====
+
+==== Pour une bonne indentation et coloation syntaxique ====
 
 <code vim>
     set encoding=utf-8
@@ -157,14 +191,14 @@ Ensuite il suffit de taper:
     set cinoptions=N-s,g0
 </code>
 
-== Meilleure gestion de la complétion des paths ==
+==== Meilleure gestion de la complétion des paths ====
 
 <code vim>
     set wildmode=longest,full
     set wildmenu
 </code>
 
-== Fold ==
+==== Fold ====
 
 Pour avoir les replis dans notre code source il faut ajouter : 
 
@@ -181,7 +215,7 @@ On peut également utiliser les replis avec les balises xml en ajoutant :
     au FileType xml setlocal foldmethod=syntax
 </code>
 
-== Recherche intelligente ==
+==== Recherche intelligente ====
 
 Ajouter à votre //.vimrc// :
 
@@ -192,14 +226,14 @@ Ajouter à votre //.vimrc// :
     set smartcase
 </code>
 
-== Colorer certains templates ==
+==== Colorer certains templates ====
 
 <code vim>
     hi def link Todo TODO
     syn keyword Todo TODO FIXME XXX DEBUG
 </code>
 
-== Utilisation de taglist ==
+==== Utilisation de taglist ====
 
 | <Enter> ou double-clic | Saut vers l'endroit où est défini le tag situé sous le curseur                                                                 |
 | o                      | Saut vers l'endroit où est définit le tag situé sous le curseur dans une nouvelle fenêtre                                      |
@@ -215,7 +249,7 @@ Ajouter à votre //.vimrc// :
 | q                      | Ferme la fenêtre des tags                                                                                                      |
 | <F1>                   | Affiche l'aide                                                                                                                 |
 
-== Orthographe ==
+==== Orthographe ====
 
 Pour activer la correction orthographique en anglais:
 
@@ -225,8 +259,8 @@ Pour activer la correction orthographique en anglais:
 
 Il doit y avoir un répertoire ///$HOME/.vim/spell/// qui contient :
 
-  - [[http://ftp.vim.org/vim/runtime/spell/en.utf-8.spl|en.utf-8.spl]]
-  - [[http://ftp.vim.org/vim/runtime/spell/en.utf-8.sug|en.utf-8.sug]]
+  * [[http://ftp.vim.org/vim/runtime/spell/en.utf-8.spl|en.utf-8.spl]]
+  * [[http://ftp.vim.org/vim/runtime/spell/en.utf-8.sug|en.utf-8.sug]]
 
 | ]s | Va au prochain mot erronné.  |
 | [s | Va au mot erronné précédent. |
