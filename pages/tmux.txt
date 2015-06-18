@@ -1,0 +1,7 @@
+====== Tmux ======
+
+===== Usefull commands =====
+
+| Change window number | :move-window -t new_number |
+
+
