@@ -1,0 +1,125 @@
+====== Git ======
+
+===== Index, repository, working directory =====
+
+Notions importantes:
+
+| HEAD   | Tête du dépôt courant. |
+| Index  | Ce qui sera commité.   |
+| Master | Default de mercurial.  |
+
+{{ wiki:gitIndex.png }}
+
+Le remote par défaut est **origin** mais on peut avoir autant de remote qu'on souhaite pour un même repo. Chaque remote à son master et ses branches.
+
+===== Commande de base =====
+
+| git add                                   |  fichier à modifier pour les fichiers à ne pas prendre en compte lors de git status. |
+| git clone <REMOTE>                        | crée le premier remote (origin).                                                     |
+| git checkout branche_remote -b ma_branche | rapatrie branche_remote, créé la branche ma_branch à partir de branch_remote.        |
+| git checkout master                       | rapatrie master et me laisse sur master.                                             |
+| git fetch                                 | hg pull.                                                                             |
+| git remote -v                             | liste les remotes.                                                                   |
+| git reset HEAD \<file\>                   | enlève **file** de l'index.                                                          |
+
+
+===== Rebase/Merge =====
+
+==== Rebase ====
+
+.. code-block:: sh
+<code sh>
+    git checkout ma_branche
+    git rebase master
+</code>
+
+Va mettre les commits de ma_branche à la suite de master.
+
+{{ wiki:gitRebase.jpeg }}
+
+Pour réintégrer une branche de développement on peut utiliser le rebase
+interactif:
+
+<code sh>
+   git checkout ma_branch_de_dev
+   git rebase -i master
+</code>
+
+Ainsi on pourra changer les logs de commit pour les cleaner.
+
+==== Checkout ====
+
+<code sh>
+    git checkout master
+    git merge ma_branch
+</code>
+
+déplace le tag master sur ma_branch.
+
+{{ wiki:gitMerge.jpeg }}
+
+===== Diff =====
+
+
+| git diff          |  différence entre index et repo. |
+| git diff HEAD     | différence entre HEAD et repo.   |
+| git diff --staged | différence entre HEAD et index.  |
+| HEAD^1            | parent de HEAD.                  |
+
+===== Remote, branches =====
+
+| git branch -ra                           | liste les branches local et remote.           |
+| git fetch toto                           | Pour rapatrier un remote toto.                |
+| git remote -v                            | Pour lister tous les remote.                  |
+| git push mon_remote ma_branche           | Lorsque l'on push ses modifications.          |
+| git remote show mon_remote               | Pour avoir plus d'informations sur un remote. |
+| git remote rename ancien_nom nouveau_nom | Pour renommer des remotes.                    |
+| git remote rm mon_remote                 | Pour supprimer des remotes.                   |
+
+===== Remisage =====
+
+git stash permet de mettre des modifications en attentes pour faire des modifications.
+
+<code sh>
+    git stash
+    git stash list
+</code>
+
+Pour réappliquer les modification stocké dans un stash ancien :
+
+<code sh>
+    git stash apply
+</code>
+
+===== tig =====
+
+<code sh>
+    sudo apt-get install tig
+</code>
+
+'d' diff entre le commit et le head de master.
+
+===== Merge avec vimdiff =====
+
+Configurer git pour faire un merge avec vimdiff.
+
+<note>
+  Nécessite git version >= 1.7.11.
+</note>
+
+<code linux-config>
+    [alias]
+        d = difftool --dir-diff
+    [diff]
+        tool = default-difftool
+    [difftool "default-difftool"]
+        cmd = vim -f '+next' '+execute \"DirDiff\" argv(0) argv(1)' $LOCAL $REMOTE '+syntax off'
+</code>
+
+
+Ensuite on fait le git diff:
+
+<code sh>
+   git d
+</code>
+
