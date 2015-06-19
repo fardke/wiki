@@ -151,7 +151,7 @@ Installation avec Vundle:
     Bundle 'fardke/vim-snippets'
 </code>
 
-Si UltiSnips ne reconnait pas automatiquement votre type de fichier il faut faire un lien symbolique entre **$HOME/.vim/bundle/ultisnips/ftdetect** to **$HOME/.vim/ftdetect**.
+Si UltiSnips ne reconnait pas automatiquement votre type de fichier il faut faire un lien symbolique entre //.vim/bundle/ultisnips/ftdetect// to //.vim/ftdetect//.
 
 Si vous utilisez You_complete_me il faut changer le binding par défaut, car les 2 plugins utilise tab.
 
@@ -160,13 +160,13 @@ Si vous utilisez You_complete_me il faut changer le binding par défaut, car les
     let g:UltiSnipsJumpForwardTrigger="<c-j>"
 </code>
 
-Vous pouvez changer le répertoire où sauvegarder les snippets à éditer en faisant **UltiSnipsEdit**:
+Vous pouvez changer le répertoire où sauvegarder les snippets à éditer en faisant //UltiSnipsEdit//:
 
 <code vim>
     let g:UltiSnipsSnippetsDir="mon/chemin"
 </code>
 
-Vous pouvez mapper **UltiSnipsEdit** sur F11 pour afficher le fichier où son défini les snippets en cours d'utilisation en appuyant sur F11:
+Vous pouvez mapper //UltiSnipsEdit// sur F11 pour afficher le fichier où son défini les snippets en cours d'utilisation en appuyant sur F11:
 
 <code vim>
     nnoremap <F11> :UltiSnipsEdit<CR>
