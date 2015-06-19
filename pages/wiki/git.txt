@@ -20,14 +20,13 @@ Le remote par défaut est **origin** mais on peut avoir autant de remote qu'on s
 | git checkout master                       | rapatrie master et me laisse sur master.                                             |
 | git fetch                                 | hg pull.                                                                             |
 | git remote -v                             | liste les remotes.                                                                   |
-| git reset HEAD \<file\>                   | enlève **file** de l'index.                                                          |
+| git reset HEAD %%<file>%%                 | enlève **file** de l'index.                                                          |
 
 
 ===== Rebase/Merge =====
 
 ==== Rebase ====
 
-.. code-block:: sh
 <code sh>
     git checkout ma_branche
     git rebase master
@@ -64,7 +63,7 @@ déplace le tag master sur ma_branch.
 | git diff          |  différence entre index et repo. |
 | git diff HEAD     | différence entre HEAD et repo.   |
 | git diff --staged | différence entre HEAD et index.  |
-| HEAD^1            | parent de HEAD.                  |
+| HEAD%%^%%1        | parent de HEAD.                  |
 
 ===== Remote, branches =====
 
