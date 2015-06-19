@@ -1,6 +1,6 @@
-==== Nginx ====
+====== Nginx ======
 
-=== Install ===
+===== Install =====
 
 On archlinux install nginx package:
 
@@ -20,7 +20,7 @@ Start service:
   sudo systemctl start nginx
 </code>
 
-=== Configuration ===
+===== Configuration =====
 
 You can configure nginx with file: /etc/nginx/nginx.conf.
 
